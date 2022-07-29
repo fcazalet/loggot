@@ -67,6 +67,8 @@ See the Godot Addon install section : https://docs.godotengine.org/en/stable/tut
 
 ## How to use it
 
+In Godot project settings, add an autoload named 'Loggot' that target loggot.gd.
+
 Basic synchronous example:
 
 	var logger = Loggot.get_logger("MyLogger")
