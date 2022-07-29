@@ -1,6 +1,7 @@
 extends Node
 class_name LoggotNode
 
+signal stopped_and_flushed()
 var loggers = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -19,11 +20,16 @@ func get_logger(name, appender : LoggotAppender = null) -> LoggotLogger :
 		return loggers[name]
 
 
+func stop_and_flush():
+	for name in loggers:
+		loggers[name].stop()
+	emit_signal("stopped_and_flushed")
+
+
 func _process(delta):
 	for name in loggers:
 		loggers[name]._tick(delta)
 
 
 func _exit_tree():
-	for name in loggers:
-		loggers[name].stop()
+	stop_and_flush()

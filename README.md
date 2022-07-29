@@ -180,6 +180,19 @@ It output log events to this format:
 	const DEFAULT_FORMAT = "{TIME}\t{LVL}\t{ORGN}\t{MSG}"
 
 
+## Force stop and flush
+
+If you want to stop and flush all Loggot loggers and appender, call the Loggot node function 'stop_and_flush()' and survey the 'stopped_and_flushed' signal.
+
+Example to manage hard shutdown:
+
+	func _notification(notification_signal):
+		if notification_signal == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+			Loggot.stop_and_flush()
+			yield(Loggot, 'stopped_and_flushed')
+			get_tree().quit()
+
+
 ## Support Me
 
 You to buy me a coffee ?
