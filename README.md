@@ -1,6 +1,6 @@
 # Godot Version Manager
 
-<img src="https://raw.githubusercontent.com/fcazalet/loggot/main/icon.png" width="64" height="64">
+<img src="https://raw.githubusercontent.com/fcazalet/loggot/master/icon.png" width="64" height="64">
 
 Loggot is a Godot add-on that allow total control on logs.
 
