@@ -1,4 +1,4 @@
-# Godot Version Manager
+# Loggot
 
 <img src="https://raw.githubusercontent.com/fcazalet/loggot/master/icon.png" width="64" height="64">
 
@@ -46,6 +46,7 @@ If you run it with Loggot and an asynchronous appender:
 		logger.info("{} ; print {}", [OS.get_ticks_msec(), i])
 
 It output something like this:
+
 	495	INFO	LoggotLogger	495 ; print 0
 	495	INFO	LoggotLogger	495 ; print 1
 	495	INFO	LoggotLogger	495 ; print 2
@@ -73,9 +74,11 @@ Basic synchronous example:
 	logger.info("Hello World!")
 
 Output Console:
+
 	524	INFO	MyLogger	Hello World!
 
 Details: 524 is time in msec since game started (I think we do not need a date for gamedev?), INFO as log event level, MyLogger as log origin, and the message.
+
 See "Ouput format" section for more details on formatting.
 
 Each time you call "Loggot.get_logger("MyLogger")" it will return the same logger linked to "MyLogger" name. If it does not exists it create it.
@@ -121,12 +124,14 @@ Output:
 	574	ERROR	MyLoggerA	You can see this
 
 You can pass arguments to messages:
+
 	var logger = Loggot.get_logger("MyLogger")
 	logger.attach_appender(LoggotConsoleAppender.new())
 	logger.info("Loggot is {} and {} like {}", ["fun", "cool", 42.00])
 	logger.info("Loggot is {} and {} like {}", [randi(), randf(), "no one"])
 
 Output:
+
 	522	INFO	MyLogger	Loggot is fun and cool like 42
 	524	INFO	MyLogger	Loggot is 3161026589 and 0.621225 like no one
 	
