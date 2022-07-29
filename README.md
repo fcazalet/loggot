@@ -36,7 +36,7 @@ It output something like this:
 	522 ; print 48
 	523 ; print 49
 
-That mean that with 50 prints you lost more than a frame (a frame is ~16.6ms) in your main process.
+That mean that with 50 prints you lose 32ms (= 2 frames at 60 FPS) in your main process.
 
 If you run it with Loggot and an asynchronous appender:
 
