@@ -27,10 +27,5 @@ func stop_and_flush():
 	emit_signal("stopped_and_flushed")
 
 
-func _process(delta):
-	for name in loggers:
-		loggers[name]._tick(delta)
-
-
 func _exit_tree():
 	stop_and_flush()
