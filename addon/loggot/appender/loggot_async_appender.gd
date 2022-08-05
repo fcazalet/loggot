@@ -33,7 +33,13 @@ func do_append(event : LoggotEvent):
 	if len(events_queue) > queue_size:
 		events_queue.pop_front()
 	guard.unlock()
-	semaphore.post()
+	if Engine.editor_hint: # On Editor, synch append
+		for event in events_queue:
+			appender.do_append(event)
+		events_queue.clear()
+		appender.flush()
+	else:
+		semaphore.post()
 
 
 func get_name():
@@ -42,19 +48,25 @@ func get_name():
 
 func start():
 	appender.start()
-	thread.start(self, "_thread_append_events")
+	if Engine.editor_hint:
+		# Do not start thread on Editor, some weird things happens
+		pass
+	else:
+		thread.start(self, "_thread_append_events")
 	started = true
 
 
 func stop():
-	# Ask stop to nxt thread run
-	guard.lock()
-	exit_thread = true
-	guard.unlock()
-	# authorize a thread run
-	semaphore.post()
-	# Wait until it exits.
-	thread.wait_to_finish()
+	if not Engine.editor_hint:
+		# Ask stop to nxt thread run
+		guard.lock()
+		exit_thread = true
+		guard.unlock()
+		# authorize a thread run
+		semaphore.post()
+		# Wait until it exits.
+		thread.wait_to_finish()
+	appender.stop()
 	started = false
 
 
