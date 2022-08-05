@@ -6,7 +6,7 @@ const MARKER_TIME = "{TIME}"
 const MARKER_LEVEL = "{LVL}"
 const MARKER_ORIGIN = "{ORGN}"
 const MARKER_MESSAGE = "{MSG}"
-const DEFAULT_FORMAT = "{TIME} {LVL} {ORGN} {MSG}"
+const DEFAULT_FORMAT = "{TIME} {LVL} {ORGN}: {MSG}"
 
 var format : String
 
