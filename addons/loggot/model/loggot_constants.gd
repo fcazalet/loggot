@@ -1,4 +1,3 @@
-extends Object
 class_name LoggotConstants
 
 enum Level {TRACE, DEBUG, INFO, WARN, ERROR}

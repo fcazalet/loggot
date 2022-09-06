@@ -1,5 +1,4 @@
 tool
-extends Object
 class_name LoggotLogger
 
 var name
