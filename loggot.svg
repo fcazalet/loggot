@@ -24,9 +24,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="0.26481978"
-     inkscape:cx="373.83914"
-     inkscape:cy="341.74184"
+     inkscape:zoom="0.52963956"
+     inkscape:cx="330.41339"
+     inkscape:cy="691.98003"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -81,7 +81,10 @@
      height="49.397678"
      x="104.21133"
      y="528.02087"
-     ry="0.390306" />
+     ry="0.390306"
+     inkscape:export-filename="C:\Users\Florian\Documents\GodotProjects\Loggot\icon.png"
+     inkscape:export-xdpi="6.0000005"
+     inkscape:export-ydpi="6.0000005" />
   <rect
      style="fill:#000000;stroke:none;stroke-width:0.672756;stroke-opacity:0.994135"
      id="rect1249"
