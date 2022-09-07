@@ -165,6 +165,25 @@ You can use the LoggotFileAppender to output to a file:
 	logger.info("Without milliseconds")
 	logger.info("loss again \\o/")
 
+You can use the LoggotSignalAppender to emit signal with output:
+
+	func _ready():
+		var logger = Loggot.get_logger("MyLoggerAsync")
+		var loggot_signal_appender = LoggotSignalAppender.new("loggot_is_hot.log")
+		loggot_signal_appender.connect("event_encoded", self, "_on_loggot_message")
+		logger.attach_appender(LoggotAsyncAppender.new(loggot_signal_appender))
+		logger.set_level(LoggotConstants.Level.INFO)
+		logger.info("I'am an async file appender")
+		logger.info("And I can log events in files")
+		logger.info("Without milliseconds")
+		logger.info("loss again \\o/")
+	
+	...
+	
+	func _on_loggot_message(message)
+		## You can update RichTextLabel for example to print logs ingame
+		pass
+
 Output in user://loggot_is_hot.log:
 
 	525	INFO	MyLoggerAsync	I'am an async file appender
