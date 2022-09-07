@@ -9,4 +9,7 @@
 /project.godot      export-ignore
 /icon.png           export-ignore
 /icon.svg           export-ignore
+/loggot.svg         export-ignore
 /test/              export-ignore
+/Example.gd         export-ignore
+/Example.tscn       export-ignore
