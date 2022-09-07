@@ -24,8 +24,7 @@ func _init(appender : LoggotAppender):
 
 func do_append(event : LoggotEvent):
 	# Prevent re-entry.
-	if guard.try_lock() == ERR_BUSY:
-		return
+	guard.lock()
 	if not started or not appender.is_started():
 		return
 	events_queue.append(event)
@@ -74,7 +73,7 @@ func is_started():
 	return started
 
 
-func _tick(delta):
+func flush():
 	semaphore.post()
 
 
