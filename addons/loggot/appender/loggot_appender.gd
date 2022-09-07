@@ -29,7 +29,3 @@ func stop():
 
 func is_started():
 	LoggotConstants.emit_loggot_error("LoggotAppender is_started() method should be overriden")
-
-
-func _tick(delta):
-	pass # Only used by Async appenders to prevent using all memory

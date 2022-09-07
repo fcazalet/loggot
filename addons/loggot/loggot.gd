@@ -3,11 +3,21 @@ extends Node
 class_name LoggotNode
 
 signal stopped_and_flushed()
-var loggers = {}
 
-# Called when the node enters the scene tree for the first time.
+const FLUSH_RATE_SEC = 0.5
+
+var loggers = {}
+var last_flush_time = 0
+
 func _ready():
-	pass # Replace with function body.
+	pass
+
+
+func _process(delta):
+	last_flush_time += delta
+	if last_flush_time >= FLUSH_RATE_SEC:
+		last_flush_time = 0
+		flush()
 
 
 func get_logger(name, appender : LoggotAppender = null) -> LoggotLogger :
@@ -19,6 +29,11 @@ func get_logger(name, appender : LoggotAppender = null) -> LoggotLogger :
 			logger.attach_appender(appender)
 		loggers[name] = logger
 		return loggers[name]
+
+
+func flush():
+	for name in loggers:
+		loggers[name].flush()
 
 
 func stop_and_flush():

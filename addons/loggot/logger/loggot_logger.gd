@@ -88,9 +88,9 @@ func error(message:String, args:Array = []):
 	filter_and_log(LoggotConstants.Level.ERROR, message, args)
 
 
-func _tick(delta):
+func flush():
 	for name in appenders:
-		appenders[name]._tick(delta)
+		appenders[name].flush()
 
 
 func stop():
