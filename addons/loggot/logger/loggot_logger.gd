@@ -51,7 +51,7 @@ func get_appender(name):
 
 func filter_and_log(level , message:String, args:Array):
 	# TODO improve filtering
-	if level < self.level:
+	if level < self.level or ( not OS.is_debug_build() and level < LoggotConstants.Level.INFO):
 		return
 	build_event_and_append(level, message, args)
 
