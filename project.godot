@@ -58,6 +58,11 @@ _global_script_classes=[ {
 "class": "LoggotNode",
 "language": "GDScript",
 "path": "res://addons/loggot/loggot.gd"
+}, {
+"base": "LoggotAppender",
+"class": "LoggotSignalAppender",
+"language": "GDScript",
+"path": "res://addons/loggot/appender/loggot_signal_appender.gd"
 } ]
 _global_script_class_icons={
 "LoggotAppender": "",
@@ -69,12 +74,14 @@ _global_script_class_icons={
 "LoggotEvent": "",
 "LoggotFileAppender": "",
 "LoggotLogger": "",
-"LoggotNode": ""
+"LoggotNode": "",
+"LoggotSignalAppender": ""
 }
 
 [application]
 
 config/name="Loggot"
+run/main_scene="res://test/loggot/TestDebugExport.tscn"
 config/icon="res://icon.png"
 
 [autoload]
