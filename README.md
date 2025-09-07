@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/fcazalet/loggot/master/icon.png" width="64" height="64">
 
-Loggot is a Godot add-on that allow total control on logs.
+Loggot is a Godot plugin that allow total control on logs.
 
 It allow you to create different named loggers.
 
@@ -29,9 +29,9 @@ This plugin is based on Logback (Java) architecture.
 
 ## How to install it
 
-You can find this addon in Godot AssetLibrary.
+You can find this plugin in Godot AssetLibrary.
 
-See the Godot Addon install section : https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html
+See the Godot Plugins install section : https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html
 
 ## How to use it
 
