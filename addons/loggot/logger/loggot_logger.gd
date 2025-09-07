@@ -1,4 +1,4 @@
-tool
+@tool
 class_name LoggotLogger
 
 var name
@@ -57,7 +57,7 @@ func filter_and_log(level , message:String, args:Array):
 
 
 func build_event_and_append(level, message:String, args:Array):
-	var event = LoggotEvent.new(name, OS.get_ticks_msec(), level, message, args)
+	var event = LoggotEvent.new(name, Time.get_ticks_msec(), level, message, args)
 	call_appenders(event)
 
 

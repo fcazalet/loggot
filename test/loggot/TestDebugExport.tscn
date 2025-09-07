@@ -1,23 +1,21 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cdk0421v6o5l4"]
 
-[ext_resource path="res://test/loggot/TestDebugExport.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://bcarrsmumu313" path="res://test/loggot/TestDebugExport.gd" id="1"]
 
 [node name="TestDebugExport" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="."]
-margin_top = 293.0
-margin_right = 1024.0
-margin_bottom = 307.0
+layout_mode = 2
 text = "Test"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

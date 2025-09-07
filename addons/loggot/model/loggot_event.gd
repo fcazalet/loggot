@@ -12,5 +12,3 @@ func _init(origin, time, level, message:String, args:Array):
 	self.level = level
 	self.message = message
 	self.args = args
-
-

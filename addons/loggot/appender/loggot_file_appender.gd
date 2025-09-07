@@ -5,7 +5,7 @@ const BUFFER_SIZE = 64
 
 var encoder : LoggotEncoder
 var append
-var file : File
+var file : FileAccess
 var path
 var buffer
 var buffer_idx = 0
@@ -15,8 +15,7 @@ func _init(path: String = "loggot.log", encoder : LoggotEncoder = LoggotEncoderD
 	self.encoder = encoder
 	self.append = append
 	self.path = "user://" + path
-	self.file = File.new()
-	self.buffer = PoolStringArray()
+	self.buffer = PackedStringArray()
 	self.buffer.resize(BUFFER_SIZE)
 
 
@@ -38,9 +37,9 @@ func start():
 	if init_path(path):
 		self.path = path
 	# Open File
-	var err = file.open(path, File.READ_WRITE)
-	if err:
-		LoggotConstants.emit_loggot_error("Could not open the '%s' log file; exited with error %d." % [path, err])
+	file = FileAccess.open(path, FileAccess.READ_WRITE)
+	if file == null:
+		LoggotConstants.emit_loggot_error("Could not open the '%s' log file; exited with error %d." % [path, FileAccess.get_open_error()])
 		started = false
 	file.seek_end()
 	started = true
@@ -58,17 +57,17 @@ func is_started():
 
 
 func init_path(path):
-	if not (path.is_abs_path() or path.is_rel_path()):
-		LoggotConstants.emit_loggot_error("Path '%s' is not valid." % path)
+	if not (path.is_absolute_path() or path.is_rel_path()):
+		LoggotConstants.emit_loggot_error("Path3D '%s' is not valid." % path)
 		return false
-	var dir = Directory.new()
 	var base_dir = path.get_base_dir()
-	if not dir.dir_exists(base_dir):
-		var err = dir.make_dir_recursive(base_dir)
+	if not DirAccess.dir_exists_absolute(base_dir):
+		var err = DirAccess.make_dir_recursive_absolute(base_dir)
 		if err:
 			LoggotConstants.emit_loggot_error("Could not create %s; exited with error %d." % [base_dir, err])
 			return false
-	if not file.file_exists(path) or not append:
-		var err = file.open(path, File.WRITE)
-		file.close()
+	if not FileAccess.file_exists(path) or not append:
+		var tmp_file : FileAccess = FileAccess.open(path, FileAccess.WRITE)
+		if tmp_file!= null:
+			tmp_file.close()
 	return true
