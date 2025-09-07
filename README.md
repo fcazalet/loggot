@@ -21,48 +21,16 @@ You can create your own Appender/Encoder and inject it to Logger/Appender. Just 
 
 ## Context
 
-If you run this in GDScript:
+Initially, Loggot was created for my games because in Godot 3.x the native print function was synchronous and I had FPS drops.
 
-	for i in range(0,50):
-		print(OS.get_ticks_msec(), " ; print ", i)
+In Godot 4, this issue no longer exists.
 
-It output something like this:
-
-	491 ; print 0
-	492 ; print 1
-	492 ; print 2
-	...
-	522 ; print 47
-	522 ; print 48
-	523 ; print 49
-
-That mean that with 50 prints you lose 32ms (= 2 frames at 60 FPS) in your main process.
-
-If you run it with Loggot and an asynchronous appender:
-
-	var logger = Loggot.get_logger("LoggotLogger")
-	logger.attach_appender(LoggotAsyncAppender.new(LoggotConsoleAppender.new()))
-	for i in range(0,50):
-		logger.info("{} ; print {}", [OS.get_ticks_msec(), i])
-
-It output something like this:
-
-	495	INFO	LoggotLogger	495 ; print 0
-	495	INFO	LoggotLogger	495 ; print 1
-	495	INFO	LoggotLogger	495 ; print 2
-	...
-	496	INFO	LoggotLogger	496 ; print 47
-	496	INFO	LoggotLogger	496 ; print 48
-	496	INFO	LoggotLogger	496 ; print 49
-
-You lost only 1ms on the main process, it seems fair enough.
-
-Log are not displayed exactly when asked in the code but it keep the order and all logs are time-logged.
-If logs appear some milliseconds after the info() call it should be unnoticeable for human.
+This plugin is based on Logback (Java) architecture. 
 
 ## How to install it
 
-You can find this addon in Godot AssetLibrary
+You can find this addon in Godot AssetLibrary.
+
 See the Godot Addon install section : https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html
 
 ## How to use it

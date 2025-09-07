@@ -11,7 +11,7 @@ func _ready():
 	logger_test.attach_appender(LoggotConsoleAppender.new())
 	var loggot_signal_appender : LoggotSignalAppender = LoggotSignalAppender.new()
 	logger_test.attach_appender(loggot_signal_appender)
-	loggot_signal_appender.connect("event_encoded", self, "_on_loggot_message")
+	loggot_signal_appender.connect("event_encoded", Callable(self, "_on_loggot_message"))
 
 
 func _on_Timer_timeout():

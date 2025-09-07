@@ -30,4 +30,3 @@ func stop():
 
 func is_started():
 	return true
-

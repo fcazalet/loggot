@@ -6,82 +6,13 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Reference",
-"class": "LoggotAppender",
-"language": "GDScript",
-"path": "res://addons/loggot/appender/loggot_appender.gd"
-}, {
-"base": "LoggotAppender",
-"class": "LoggotAsyncAppender",
-"language": "GDScript",
-"path": "res://addons/loggot/appender/loggot_async_appender.gd"
-}, {
-"base": "LoggotAppender",
-"class": "LoggotConsoleAppender",
-"language": "GDScript",
-"path": "res://addons/loggot/appender/loggot_console_appender.gd"
-}, {
-"base": "Reference",
-"class": "LoggotConstants",
-"language": "GDScript",
-"path": "res://addons/loggot/model/loggot_constants.gd"
-}, {
-"base": "Reference",
-"class": "LoggotEncoder",
-"language": "GDScript",
-"path": "res://addons/loggot/encoder/loggot_encoder.gd"
-}, {
-"base": "LoggotEncoder",
-"class": "LoggotEncoderDefault",
-"language": "GDScript",
-"path": "res://addons/loggot/encoder/loggot_encoder_default.gd"
-}, {
-"base": "Reference",
-"class": "LoggotEvent",
-"language": "GDScript",
-"path": "res://addons/loggot/model/loggot_event.gd"
-}, {
-"base": "LoggotAppender",
-"class": "LoggotFileAppender",
-"language": "GDScript",
-"path": "res://addons/loggot/appender/loggot_file_appender.gd"
-}, {
-"base": "Reference",
-"class": "LoggotLogger",
-"language": "GDScript",
-"path": "res://addons/loggot/logger/loggot_logger.gd"
-}, {
-"base": "Node",
-"class": "LoggotNode",
-"language": "GDScript",
-"path": "res://addons/loggot/loggot.gd"
-}, {
-"base": "LoggotAppender",
-"class": "LoggotSignalAppender",
-"language": "GDScript",
-"path": "res://addons/loggot/appender/loggot_signal_appender.gd"
-} ]
-_global_script_class_icons={
-"LoggotAppender": "",
-"LoggotAsyncAppender": "",
-"LoggotConsoleAppender": "",
-"LoggotConstants": "",
-"LoggotEncoder": "",
-"LoggotEncoderDefault": "",
-"LoggotEvent": "",
-"LoggotFileAppender": "",
-"LoggotLogger": "",
-"LoggotNode": "",
-"LoggotSignalAppender": ""
-}
+config_version=5
 
 [application]
 
 config/name="Loggot"
 run/main_scene="res://test/loggot/TestDebugExport.tscn"
+config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
 
 [autoload]

@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://snje3osr1sek"]
 
-[ext_resource path="res://test/loggot/TestBenchmark.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://bfnd10m7q7uon" path="res://test/loggot/TestBenchmark.gd" id="1"]
 
 [node name="TestBenchmark" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource("1")
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
